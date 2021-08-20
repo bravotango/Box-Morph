@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jiggle Into JavaScript</title>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+    <style>
+      .slide {
+        animation-duration: 3s;
+        animation-name: slidein;
+      }
+      @keyframes slidein {
+        from {
+          margin-left: -150px;
+        }
+
+        to {
+          margin-left: 0%;
+        }
+      }
+
+      .arrow {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        padding: 3px;
+        display: inline-block;
+      }
+      .controller {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        grid-template-rows: repeat(3, 1fr);
+        width: 100px;
+        margin-top: 20px;
+      }
+      .controller button {
+        width: 25px;
+        height: 25px;
+      }
+      .right {
+        transform: rotate(-45deg);
+      }
+      .left {
+        transform: rotate(135deg);
+      }
+      .up {
+        transform: rotate(-135deg);
+      }
+      .down {
+        transform: rotate(45deg);
+      }
+
+      #rightTrigger {
+        grid-area: 2 / 3;
+      }
+      #leftTrigger {
+        grid-area: 2 / 1;
+      }
+      #upTrigger {
+        grid-area: 1 / 2;
+      }
+      #downTrigger {
+        grid-area: 3 / 2;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Press the buttons to change the box!</p>
+
+    <div
+      id="box"
+      style="
+        height: 150px;
+        width: 150px;
+        background-color: orange;
+        margin: 25px;
+      "
+    ></div>
+
+    <button id="button1">Grow</button>
+    <button id="button2">Blue</button>
+    <button id="button3">Fade</button>
+    <button id="button4">Reset</button>
+
+    <div class="controller">
+      <button id="upTrigger"><i class="arrow up"></i></button>
+      <button id="leftTrigger"><i class="arrow left"></i></button>
+      <button id="rightTrigger"><i class="arrow right"></i></button>
+      <button id="downTrigger"><i class="arrow down"></i></button>
+    </div>
+
+    <script type="text/javascript" src="javascript.js"></script>
+  </body>
+</html>

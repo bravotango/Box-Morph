@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jiggle Into JavaScript</title>
+  </head>
+  <body>
+    <p>Press the buttons to move the box!</p>
+
+    <div
+      id="box"
+      style="
+        position: relative;
+        height: 150px;
+        width: 150px;
+        background-color: orange;
+        margin: 25px;
+      "
+    ></div>
+
+    <button id="shrinkBtn">Shrink</button>
+    <button id="growBtn">Grow</button>
+    <button id="resetBtn">Reset</button>
+
+    <script type="text/javascript">
+      const initialGrowText = "Grow";
+      const initialShrinkText = "Shrink";
+      document
+        .getElementById("shrinkBtn")
+        .addEventListener("click", function () {
+          const box = document.getElementById("box");
+          box.style.height = box.style.height.slice(0, -2) / 2 + "px";
+          this.innerText = "Shrinking";
+          document.getElementById("growBtn").innerText = initialGrowText;
+          alert(box.style.left);
+          box.style.backgroundColor = "purple";
+          box.style.left = Math.round(box.style.left.slice(0, -2)) + 50 + "px";
+        });
+
+      document.getElementById("growBtn").addEventListener("click", function () {
+        document.getElementById("box").style.height =
+          document.getElementById("box").style.height.slice(0, -2) *
+            Math.round((Math.random() * 10) / 2) +
+          "px";
+
+        this.innerText = "Growing";
+        const shrink = document.getElementById("shrinkBtn");
+        if (shrink.innerText !== initialShrinkText) {
+          shrink.innerText = initialShrinkText;
+        }
+      });
+
+      document
+        .getElementById("resetBtn")
+        .addEventListener("click", function () {
+          document.getElementById("box").style.height = "150px";
+          document.getElementById("growBtn").innerText = initialGrowText;
+          document.getElementById("shrinkBtn").innerText = initialShrinkText;
+        });
+    </script>
+  </body>
+</html>
