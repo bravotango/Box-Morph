@@ -32,7 +32,69 @@ fadeButton.addEventListener("click", function () {
 resetButton.addEventListener("click", function () {
   location.reload();
 });
-const moveRight = () => {
-  console.log("move right");
+let timer;
+const move = (direction) => {
+  timer = setInterval(() => {
+    let increment = 2;
+    let position;
+
+    const moveBox = (styleAtt, operator) => {
+      boxStyle = `box.style.${styleAtt}`;
+      boxStyleValue = eval(boxStyle);
+      position = eval(
+        parseInt(boxStyleValue.slice(0, -2)) + operator + increment
+      );
+      if (styleAtt === "top") {
+        box.style.top = position + "px";
+      } else {
+        box.style.left = position + "px";
+      }
+    };
+
+    switch (direction) {
+      case "right":
+        moveBox("left", "+");
+        break;
+      case "left":
+        moveBox("left", "-");
+        break;
+      case "up":
+        moveBox("top", "-");
+        break;
+      case "down":
+        moveBox("top", "+");
+        break;
+      case "ne":
+        moveBox("top", "-");
+        moveBox("left", "+");
+        break;
+      case "nw":
+        moveBox("top", "-");
+        moveBox("left", "-");
+        break;
+      case "se":
+        moveBox("top", "+");
+        moveBox("left", "+");
+        break;
+      case "sw":
+        moveBox("top", "+");
+        moveBox("left", "-");
+        break;
+    }
+  }, 10);
 };
-document.getElementById("rightTrigger").addEventListener("click", moveRight);
+
+const clearTimer = () => {
+  clearInterval(timer);
+};
+
+const directions = ["up", "down", "left", "right", "ne", "nw", "se", "sw"];
+directions.forEach((el) => {
+  let elementId = el + "Trigger";
+
+  document
+    .getElementById(elementId)
+    .addEventListener("mousedown", () => move(el));
+});
+document.addEventListener("mouseup", clearTimer);
+document.getElementById("controller").addEventListener("mouseup", clearTimer);

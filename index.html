@@ -24,7 +24,7 @@
         padding: 3px;
         display: inline-block;
       }
-      .controller {
+      #controller {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
@@ -48,6 +48,18 @@
       .down {
         transform: rotate(45deg);
       }
+      .ne {
+        transform: rotate(-90deg);
+      }
+      .nw {
+        transform: rotate(-180deg);
+      }
+      .se {
+        transform: rotate(0deg);
+      }
+      .sw {
+        transform: rotate(95deg);
+      }
 
       #rightTrigger {
         grid-area: 2 / 3;
@@ -61,6 +73,18 @@
       #downTrigger {
         grid-area: 3 / 2;
       }
+      #neTrigger {
+        grid-area: 1 / 3;
+      }
+      #nwTrigger {
+        grid-area: 1 / 1;
+      }
+      #seTrigger {
+        grid-area: 3 / 3;
+      }
+      #swTrigger {
+        grid-area: 3 / 1;
+      }
     </style>
   </head>
   <body>
@@ -69,10 +93,14 @@
     <div
       id="box"
       style="
+        position: relative;
         height: 150px;
         width: 150px;
         background-color: orange;
         margin: 25px;
+        left: 0px;
+        top: 0px;
+        z-index: -5;
       "
     ></div>
 
@@ -81,11 +109,15 @@
     <button id="button3">Fade</button>
     <button id="button4">Reset</button>
 
-    <div class="controller">
+    <div id="controller">
       <button id="upTrigger"><i class="arrow up"></i></button>
       <button id="leftTrigger"><i class="arrow left"></i></button>
       <button id="rightTrigger"><i class="arrow right"></i></button>
       <button id="downTrigger"><i class="arrow down"></i></button>
+      <button id="neTrigger"><i class="arrow ne"></i></button>
+      <button id="nwTrigger"><i class="arrow nw"></i></button>
+      <button id="seTrigger"><i class="arrow se"></i></button>
+      <button id="swTrigger"><i class="arrow sw"></i></button>
     </div>
 
     <script type="text/javascript" src="javascript.js"></script>
