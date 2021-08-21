@@ -4,6 +4,11 @@
     <title>Jiggle Into JavaScript</title>
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Frijole&display=swap");
+      body,
+      button {
+        font-family: "Frijole", cursive;
+      }
       .slide {
         animation-duration: 3s;
         animation-name: slidein;
@@ -90,24 +95,13 @@
   <body>
     <p>Press the buttons to change the box!</p>
 
-    <div
-      id="box"
-      style="
-        position: relative;
-        height: 150px;
-        width: 150px;
-        background-color: orange;
-        margin: 25px;
-        left: 0px;
-        top: 0px;
-        z-index: -5;
-      "
-    ></div>
-
+    <button id="shrink">Shrink</button>
     <button id="button1">Grow</button>
     <button id="button2">Blue</button>
     <button id="button3">Fade</button>
     <button id="button4">Reset</button>
+    <button id="circle">Circle</button>
+    <button id="duplicate">Duplicate</button>
 
     <div id="controller">
       <button id="upTrigger"><i class="arrow up"></i></button>
@@ -119,7 +113,24 @@
       <button id="seTrigger"><i class="arrow se"></i></button>
       <button id="swTrigger"><i class="arrow sw"></i></button>
     </div>
-
+    <div
+      id="box"
+      style="
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        background-color: orange;
+        margin: 25px;
+        left: 100px;
+        top: 65px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+      "
+    >
+      Master
+    </div>
     <script type="text/javascript" src="javascript.js"></script>
   </body>
 </html>

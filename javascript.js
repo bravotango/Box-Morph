@@ -96,5 +96,34 @@ directions.forEach((el) => {
     .getElementById(elementId)
     .addEventListener("mousedown", () => move(el));
 });
+
+const radius = () => {
+  box.style.borderRadius = box.style.borderRadius === "50%" ? "0" : "50%";
+  const circleButton = document.getElementById("circle");
+  circleButton.innerText =
+    box.style.borderRadius === "50%" ? "Square" : "Circle";
+};
+
+let counter = 0;
+const duplicate = () => {
+  counter++;
+  let cloneBox = box.cloneNode(true);
+  cloneBox.id = "box" + counter;
+  cloneBox.style.zIndex = -counter;
+  cloneBox.innerText = `Copy ${counter}`;
+  document.body.appendChild(cloneBox);
+};
+
+document.getElementById("shrink").addEventListener("click", () => {
+  const h = box.style.height.slice(0, -2);
+  const w = box.style.width.slice(0, -2);
+  box.style.height = parseInt(h * 0.75) + "px";
+  box.style.width = parseInt(w * 0.75) + "px";
+});
 document.addEventListener("mouseup", clearTimer);
 document.getElementById("controller").addEventListener("mouseup", clearTimer);
+document.addEventListener("dblclick ", clearTimer);
+document.getElementById("circle").addEventListener("click", radius);
+document
+  .getElementById("duplicate")
+  .addEventListener("click", () => duplicate(counter));
