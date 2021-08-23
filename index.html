@@ -90,7 +90,24 @@
       #swTrigger {
         grid-area: 3 / 1;
       }
+      .boxClass {
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        background-color: orange;
+        margin: 25px;
+        left: 100px;
+        top: 65px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+        transition-property: border-radius;
+        transition-duration: .5s;
+      }
+    
     </style>
+
   </head>
   <body>
     <p>Press the buttons to change the box!</p>
@@ -115,6 +132,7 @@
     </div>
     <div
       id="box"
+      //class="boxClass"
       style="
         position: absolute;
         height: 150px;
@@ -127,10 +145,13 @@
         justify-content: center;
         align-items: center;
         z-index: -1;
-      "
+        transition-property: border-radius;
+        transition-duration: .5s;"
     >
       Master
     </div>
     <script type="text/javascript" src="javascript.js"></script>
+
   </body>
+
 </html>
