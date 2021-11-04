@@ -14,4 +14,4 @@ Fun with javascript event listeners and the document object model
 
 ## Deployed application
 
-[Deployed application](https://bravotango.github.io/box/)
+[https://bravotango.github.io/Box-Morph/](https://bravotango.github.io/Box-Morph/)
